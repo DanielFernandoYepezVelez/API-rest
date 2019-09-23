@@ -70,6 +70,7 @@ router.post('/producto', isAuthenticated, async(req, res) => {
 
         productoPost.user = req.user.id;
         await productoPost.save();
+        req.flash('mensajeExitoso', 'Producto Agregado Correctamente');
         res.redirect('/producto');
     }
     // ----------------------------------
@@ -119,6 +120,7 @@ router.put('/producto/:id', isAuthenticated, async(req, res) => {
         estadoVenta,
         fechaIngresoProducto
     });
+    req.flash('mensajeExitoso', 'Producto Actualizado Correctamente');
     res.redirect('/editarProducto');
     /* ------------------------------------------- *
 
@@ -164,6 +166,7 @@ router.put('/producto/:id', isAuthenticated, async(req, res) => {
 
 router.delete('/producto/:id', isAuthenticated, async(req, res) => {
     await Producto.findByIdAndDelete(req.params.id);
+    req.flash('mensajeExitoso', 'Producto Eliminado Correctamente');
     res.redirect('/eliminarProducto');
     /* ------------------------------------------------ */
 
