@@ -37,14 +37,27 @@ router.post('/producto', isAuthenticated, async(req, res) => {
     } = req.body;
 
     if (!nombreDelPan) {
-        errors.push({
-            text: 'Ingrese el nombre del pan',
-        });
+        errors.push({ text: 'Ingrese El Nombre Del Pan', });
     }
-
+    if (!saborDePan) {
+        errors.push({ text: 'Ingrese El Sabor De Pan', });
+    }
+    if (!cantidadPanes) {
+        errors.push({ text: 'Ingrese Cantidad De Panes', });
+    }
+    if (!estadoVenta) {
+        errors.push({ text: 'Ingrese Estado De Venta' });
+    }
+    if (!fechaIngresoProducto) {
+        fechaIngresoProducto = Date.now();
+    }
     if (errors.length > 0) {
         res.render('product/create', {
-            errors
+            errors,
+            nombreDelPan,
+            saborDePan,
+            cantidadPanes,
+            estadoVenta,
         });
     } else {
         const productoPost = new Producto({
@@ -93,6 +106,12 @@ router.put('/producto/:id', isAuthenticated, async(req, res) => {
         fechaIngresoProducto
     } = req.body;
 
+    if (!cantidadPanes) {
+        cantidadPanes = 0;
+    }
+    if (!fechaIngresoProducto || fechaIngresoProducto) {
+        fechaIngresoProducto = Date.now();
+    }
     await Producto.findByIdAndUpdate(req.params.id, {
         nombreDelPan,
         saborDePan,

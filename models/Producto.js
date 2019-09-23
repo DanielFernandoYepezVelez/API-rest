@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 let productoSchema = new Schema({
-    nombreDelPan: { type: String, required: false },
-    saborDePan: { type: String, required: false },
-    cantidadPanes: { type: Number, requird: false },
+    nombreDelPan: { type: String, required: true },
+    saborDePan: { type: String, required: true },
+    cantidadPanes: { type: Number, requird: true },
     estadoVenta: { type: String },
     // ingredientes: [nombreIngrediente]
     // ingredientes: {

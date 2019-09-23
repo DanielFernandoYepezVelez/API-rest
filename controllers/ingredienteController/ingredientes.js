@@ -30,6 +30,7 @@ router.post('/ingrediente', isAuthenticated, async(req, res) => {
     const errors = [];
     let {
         nombreIngrediente,
+        tipoMedidaIngrediente,
         tipoMedidaIngredienteSolido,
         valorTipoMedidaIngredienteSolido,
         tipoMedidaIngredienteLiquido,
@@ -47,20 +48,35 @@ router.post('/ingrediente', isAuthenticated, async(req, res) => {
             text: 'Ingrese el nombre del ingrediente',
         });
     }
-
+    if (!valorTipoMedidaIngredienteSolido && !valorTipoMedidaIngredienteLiquido) {
+        errors.push({
+            text: 'Ingresar Un Valor Para Kilogramos O Litros',
+        });
+    }
+    if (!valorTipoMedidaIngredienteSolido) {
+        valorTipoMedidaIngredienteSolido = 0;
+    }
+    if (!valorTipoMedidaIngredienteLiquido) {
+        valorTipoMedidaIngredienteLiquido = 0;
+    }
+    if (!cantidadUnitariaIngrediente) {
+        errors.push({
+            text: 'Ingresar Una Cantidad Unitaria Del Ingrediente',
+        });
+    }
     if (!fechaIngresoIngrediente) {
         fechaIngresoIngrediente = Date.now();
     }
-
-    // if (!valorTipoMedidaIngredienteSolido && !valorTipoMedidaIngredienteLiquido) {
-    //     errors.push({
-    //         text: 'Debes ingresar un valor para ingrediente Solido o Liquido',
-    //     });
-    // }
-
     if (errors.length > 0) {
         res.render('ingredient/create', {
-            errors
+            errors,
+            nombreIngrediente,
+            tipoMedidaIngredienteSolido,
+            valorTipoMedidaIngredienteSolido,
+            tipoMedidaIngredienteLiquido,
+            valorTipoMedidaIngredienteLiquido,
+            cantidadUnitariaIngrediente,
+            fechaIngresoIngrediente
         });
     } else {
         const ingredientePost = new Ingredientes({
@@ -78,7 +94,6 @@ router.post('/ingrediente', isAuthenticated, async(req, res) => {
         pero solo quiero el id para enlazarlo con el ingrediente
         creado.*/
         ingredientePost.user = req.user.id;
-
         await ingredientePost.save();
         /* Despues de guardar El ingediente*/
         req.flash('mensajeExitoso', 'Ingrediente Agregado Correctamente');
@@ -125,6 +140,24 @@ router.put('/ingrediente/:id', isAuthenticated, async(req, res) => {
         fechaIngresoIngrediente
     } = req.body;
 
+    if (!tipoMedidaIngredienteSolido || tipoMedidaIngredienteSolido) {
+        tipoMedidaIngredienteSolido = 'Kilogramos';
+    }
+    if (!valorTipoMedidaIngredienteSolido) {
+        valorTipoMedidaIngredienteSolido = 0;
+    }
+    if (!tipoMedidaIngredienteLiquido || tipoMedidaIngredienteLiquido) {
+        tipoMedidaIngredienteLiquido = 'Litros';
+    }
+    if (!valorTipoMedidaIngredienteLiquido) {
+        valorTipoMedidaIngredienteLiquido = 0;
+    }
+    if (!cantidadUnitariaIngrediente) {
+        cantidadUnitariaIngrediente = 0;
+    }
+    if (!fechaIngresoIngrediente || fechaIngresoIngrediente) {
+        fechaIngresoIngrediente = Date.now();
+    }
     await Ingredientes.findByIdAndUpdate(req.params.id, {
         nombreIngrediente,
         tipoMedidaIngredienteSolido,

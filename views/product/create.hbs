@@ -17,16 +17,19 @@
     <div class="card-body">
       <form action="/producto" method="POST">
         <div class="form-group">
-          <input type="text" name="nombreDelPan" class="form-control" placeholder="nombre pan:" autofocus>
+          <input type="text" name="nombreDelPan" class="form-control" placeholder="nombre pan:" autofocus value="{{nombreDelPan}}">
         </div>
         <div class="crud-display form-group">
-          <input type="text" name="saborDePan" class="menu-left form-control" placeholder="sabor pan:" autofocus>
+          <input type="text" name="saborDePan" class="menu-left form-control" placeholder="sabor pan:" autofocus value="{{saborDePan}}">
         </div>
         <div class="crud-display form-group">
-          <input type="text" name="cantidadPanes" class="form-control" placeholder="cantidad panes:" autofocus>
+          <input type="text" name="cantidadPanes" class="form-control" placeholder="cantidad panes:" autofocus value="{{cantidadPanes}}">
         </div>
         <div class="crud-display form-group">
-          <input type="text" name="estadoVenta" class="menu-left form-control" placeholder="estado venta:" autofocus>
+          <input type="text" name="estadoVenta" class="menu-left form-control" placeholder="estado venta:" autofocus value="{{estadoVenta}}">
+        </div>
+        <div class="crud-display form-group">
+          <input type="text" name="fechaIngresoProducto" class="menu-left form-control" placeholder="fecha Ingreso:" autofocus>
         </div>
           <input class="btn btn-success btn-block" type="submit" value="Crear">
       </form>

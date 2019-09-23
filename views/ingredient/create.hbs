@@ -10,18 +10,18 @@
     <div class="card-body">
       <form action="/ingrediente" method="POST">
         <div class="form-group">
-          <input type="text" name="nombreIngrediente" class="form-control" placeholder="nombre ingrediente:" autofocus>
-        </div>
+          <input type="text" name="nombreIngrediente" class="form-control" placeholder="nombre ingrediente:" autofocus value="{{nombreIngrediente}}">
+        </div>      
         <div class="crud-display form-group">
           <input type="text" name="tipoMedidaIngredienteSolido" class="menu-left form-control" value="Kilogramos" disabled autofocus>
-          <input type="text" name="valorTipoMedidaIngredienteSolido" class="form-control" placeholder="valor medida(Kg):" autofocus>
+          <input type="text" name="valorTipoMedidaIngredienteSolido" class="form-control" placeholder="valor medida(Kg):" autofocus value="{{valorTipoMedidaIngredienteSolido}}">
         </div>
         <div class="crud-display form-group">
           <input type="text" name="tipoMedidaIngredienteLiquido" class="menu-left form-control" value="Litros" disabled autofocus>
-          <input type="text" name="valorTipoMedidaIngredienteLiquido" class="form-control" placeholder="valor medida(Lt):" autofocus>
+          <input type="text" name="valorTipoMedidaIngredienteLiquido" class="form-control" placeholder="valor medida(Lt):" autofocus value="{{valorTipoMedidaIngredienteLiquido}}">
         </div>
         <div class="form-group">
-          <input type="text" name="cantidadUnitariaIngrediente" class="form-control" placeholder="cantidad unitaria:" autofocus>
+          <input type="text" name="cantidadUnitariaIngrediente" class="form-control" placeholder="cantidad unitaria:" autofocus value="{{cantidadUnitariaIngrediente}}">
         </div>
         <div class="form-group">
           <input type="text" name="fechaIngresoIngrediente" class="form-control" placeholder="fecha ingreso:" autofocus>

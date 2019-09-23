@@ -9,15 +9,21 @@ router.post('/signupuser', async(req, res) => {
     const errors = [];
 
     if (nombre.length <= 0) {
-        errors.push({ text: 'Ingrese nombre de usuario' });
+        errors.push({ text: 'Ingresar Nombre De Usuario' });
+    }
+
+    if (email.length <= 0) {
+        errors.push({ text: 'Ingresar Correo Electrónico' });
+    }
+
+    if (contrasena.length <= 0) {
+        errors.push({ text: 'Ingresar Una Contraseña' });
+    } else if (contrasena.length < 4) {
+        errors.push({ text: 'La Contraseña Debe Ser Mayor A 4 Caracteres' });
     }
 
     if (contrasena != confirmarContrasena) {
-        errors.push({ text: 'Las contraseña no coinciden' });
-    }
-
-    if (contrasena.length < 4) {
-        errors.push({ text: 'La contraseña debe ser mayor a 4 caracteres' });
+        errors.push({ text: 'Las Contraseñas No Coinciden' });
     }
 
     if (errors.length > 0) {
@@ -32,7 +38,7 @@ router.post('/signupuser', async(req, res) => {
         const emailUser = await Usuario.findOne({ email: email })
 
         if (emailUser) {
-            req.flash('mensajeFallido', 'El correo electronico ya existe');
+            req.flash('mensajeFallido', 'El Correo Electrónico Ya Existe');
             res.redirect('/signup');
         }
 

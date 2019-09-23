@@ -21,7 +21,7 @@ passport.use(new localStrategy({
         /* null => si no existe ningun error
         false => si el usuario no existe
         message => mensaje para el usuario */
-        return done(null, false, { message: 'El correo electronico no existe' });
+        return done(null, false, { message: 'El Correo Electronico No Existe' });
 
         /* aquí si encontró un usuario */
     } else {
