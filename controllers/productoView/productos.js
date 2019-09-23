@@ -9,7 +9,7 @@ router.get('/crearProducto', isAuthenticated, (req, res) => {
 });
 
 router.get('/editarProducto', isAuthenticated, async(req, res) => {
-    const listarProductos = await Productos.find().sort({ fechaIngresoProducto: 'desc' });
+    const listarProductos = await Productos.find({ user: req.user.id }).sort({ fechaIngresoProducto: 'desc' });
     res.render('product/update', { listarProductos });
 });
 
@@ -19,7 +19,7 @@ router.get('/p:id', isAuthenticated, async(req, res) => {
 });
 
 router.get('/eliminarProducto', isAuthenticated, async(req, res) => {
-    const listarProductos = await Productos.find().sort({ fechaIngresoProducto: 'desc' });
+    const listarProductos = await Productos.find({ user: req.user.id }).sort({ fechaIngresoProducto: 'desc' });
     res.render('product/delete', { listarProductos });
 });
 

@@ -6,7 +6,7 @@ let Producto = require('../../models/Producto');
 const { isAuthenticated } = require('../../helpers/auth');
 
 router.get('/producto', isAuthenticated, async(req, res) => {
-    const listarProductos = await Producto.find().sort({ fechaIngresoProducto: 'desc' });
+    const listarProductos = await Producto.find({ user: req.user.id }).sort({ fechaIngresoProducto: 'desc' });
     res.render('product/read', { listarProductos });
     /* -------------------------------------------------- */
 
@@ -55,6 +55,7 @@ router.post('/producto', isAuthenticated, async(req, res) => {
             fechaIngresoProducto
         });
 
+        productoPost.user = req.user.id;
         await productoPost.save();
         res.redirect('/producto');
     }

@@ -12,7 +12,7 @@ router.get('/crearIngrediente', isAuthenticated, (req, res) => {
 });
 
 router.get('/editarIngrediente', isAuthenticated, async(req, res) => {
-    const listarIngredientes = await Ingredientes.find().sort({ fechaIngresoIngrediente: 'desc' });
+    const listarIngredientes = await Ingredientes.find({ user: req.user.id }).sort({ fechaIngresoIngrediente: 'desc' });
     res.render('ingredient/update', { listarIngredientes });
 });
 
@@ -22,7 +22,7 @@ router.get('/r:id', isAuthenticated, async(req, res) => {
 });
 
 router.get('/eliminarIngrediente', isAuthenticated, async(req, res) => {
-    const listarIngredientes = await Ingredientes.find().sort({ fechaIngresoIngrediente: 'desc' });
+    const listarIngredientes = await Ingredientes.find({ user: req.user.id }).sort({ fechaIngresoIngrediente: 'desc' });
     res.render('ingredient/delete', { listarIngredientes });
 });
 
