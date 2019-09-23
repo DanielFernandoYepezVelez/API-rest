@@ -1,0 +1,25 @@
+{{>sidebar}}
+
+<div class="row container mx-auto">
+  {{#each listarIngredientes}}
+    <div class="col-md-6">
+      <div class="card card-bottom">
+        <div class="card-body">
+          <strong>Ingrediente:</strong> {{nombreIngrediente}} <br>
+          <strong>Tipo De Medida:</strong> {{tipoMedidaIngredienteSolido}} <br>
+          <strong>Valor:</strong> {{valorTipoMedidaIngredienteSolido}} <br>
+          <strong>Tipo De Medida:</strong> {{tipoMedidaIngredienteLiquido}} <br>
+          <strong>Valor:</strong> {{valorTipoMedidaIngredienteLiquido}} <br>
+          <strong>Cantidad Unitaria:</strong> {{cantidadUnitariaIngrediente}} <br>
+          <strong>Fecha Ingreso:</strong> {{fechaIngresoIngrediente}} <br>
+          <form action="/ingrediente/{{_id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE" >
+            <button class="btn btn-success btn-block" type="submit">Eliminar</button>
+           </form> 
+        </div>
+      </div>
+    </div>
+    {{else}}
+    {{>card-body}}
+  {{/each}}
+</div>

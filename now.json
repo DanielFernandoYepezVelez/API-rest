@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [{
+        "src": "/*.js",
+        "use": "@node/node-server"
+    }],
+    "routes": [{
+            "src": "/routes",
+            "dest": "routes.js",
+            "methods": ["GET", "POST", "PUT", "DELETE"]
+        },
+        {
+            "src": "/(.*)",
+            "dest": "server.js"
+        }
+    ]
+}

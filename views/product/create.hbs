@@ -1,0 +1,35 @@
+{{>sidebar}}
+
+{{#each errors}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{text}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{{/each}}
+
+<section class="col-md-8 mx-auto">
+  <article class="card">
+    <div class="card-header">
+      <h2 class="crud-h2">Crear Producto</h2>
+    </div>
+    <div class="card-body">
+      <form action="/producto" method="POST">
+        <div class="form-group">
+          <input type="text" name="nombreDelPan" class="form-control" placeholder="nombre pan:" autofocus>
+        </div>
+        <div class="crud-display form-group">
+          <input type="text" name="saborDePan" class="menu-left form-control" placeholder="sabor pan:" autofocus>
+        </div>
+        <div class="crud-display form-group">
+          <input type="text" name="cantidadPanes" class="form-control" placeholder="cantidad panes:" autofocus>
+        </div>
+        <div class="crud-display form-group">
+          <input type="text" name="estadoVenta" class="menu-left form-control" placeholder="estado venta:" autofocus>
+        </div>
+          <input class="btn btn-success btn-block" type="submit" value="Crear">
+      </form>
+    </div>
+  </article>
+</section>

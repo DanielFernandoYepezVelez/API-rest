@@ -1,0 +1,19 @@
+{{>sidebar}}
+
+<div class="row container mx-auto">
+  {{#each listarProductos}}
+    <div class="col-md-6">
+      <div class="card card-bottom">
+        <div class="card-body">
+          <strong>Nombre Del Pan:</strong> {{nombreDelPan}}<br>
+          <strong>Sabor De Pan:</strong> {{saborDePan}} <br>
+          <strong>Cantidad De Panes:</strong> {{cantidadPanes}} <br>
+          <strong>Estado Venta:</strong> {{estadoVenta}} <br>
+          <strong>Fecha Ingreso:</strong> {{fechaIngresoProducto}} <br>
+        </div>
+      </div>
+    </div>
+    {{else}}
+    {{>card-body2}}
+  {{/each}}
+</div>

@@ -1,0 +1,33 @@
+{{>sidebar}}
+
+{{>errors}}
+
+<section class="col-md-8 mx-auto">
+  <article class="card">
+    <div class="card-header">
+      <h2 class="crud-h2">Crear Ingrediente</h2>
+    </div>
+    <div class="card-body">
+      <form action="/ingrediente" method="POST">
+        <div class="form-group">
+          <input type="text" name="nombreIngrediente" class="form-control" placeholder="nombre ingrediente:" autofocus>
+        </div>
+        <div class="crud-display form-group">
+          <input type="text" name="tipoMedidaIngredienteSolido" class="menu-left form-control" value="Kilogramos" disabled autofocus>
+          <input type="text" name="valorTipoMedidaIngredienteSolido" class="form-control" placeholder="valor medida(Kg):" autofocus>
+        </div>
+        <div class="crud-display form-group">
+          <input type="text" name="tipoMedidaIngredienteLiquido" class="menu-left form-control" value="Litros" disabled autofocus>
+          <input type="text" name="valorTipoMedidaIngredienteLiquido" class="form-control" placeholder="valor medida(Lt):" autofocus>
+        </div>
+        <div class="form-group">
+          <input type="text" name="cantidadUnitariaIngrediente" class="form-control" placeholder="cantidad unitaria:" autofocus>
+        </div>
+        <div class="form-group">
+          <input type="text" name="fechaIngresoIngrediente" class="form-control" placeholder="fecha ingreso:" autofocus>
+        </div>
+        <input class="btn btn-success btn-block" type="submit" value="Crear">
+      </form>
+    </div>
+  </article>
+</section>

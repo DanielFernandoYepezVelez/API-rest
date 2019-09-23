@@ -1,0 +1,22 @@
+{{>sidebar}}
+
+<div class="row container mx-auto">
+  {{#each listarProductos}}
+    <div class="col-md-6">
+      <div class="card card-bottom">
+        <div class="card-body">
+          <strong>Nombre Del Pan:</strong> {{nombreDelPan}} <br>
+          <strong>Sabor De Pan:</strong> {{saborDePan}} <br>
+          <strong>Cantidad Panes:</strong> {{cantidadPanes}} <br>
+          <strong>Estado Venta:</strong> {{estadoVenta}} <br>
+          <form action="/producto/{{_id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE" >
+            <button class="btn btn-success btn-block" type="submit">Eliminar</button>
+           </form> 
+        </div>
+      </div>
+    </div>
+    {{else}}
+    {{>card-body2}}
+  {{/each}}
+</div>

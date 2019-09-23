@@ -1,0 +1,32 @@
+{{>sidebar}}
+
+<div class="col-8 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="crud-h2" >Editar Ingrediente</h2>
+      <div class="card-body">
+        <form action="/ingrediente/{{ingrediente._id}}?_method=PUT" method="POST">
+          <input type="hidden" name="_method" value="PUT">
+          <div class="form-group">
+            <input type="text" name="nombreIngrediente" class="form-control" placeholder="nombre ingrediente:" autofocus value="{{ingrediente.nombreIngrediente}}">
+          </div>
+          <div class="crud-display form-group">
+            <input type="text" name="tipoMedidaIngredienteSolido" class="menu-left form-control" value="Kilogramos" disabled>
+            <input type="text" name="valorTipoMedidaIngredienteSolido" class="form-control" placeholder="valor medida(Kg):" autofocus value="{{ingrediente.valorTipoMedidaIngredienteSolido}}">
+          </div>
+          <div class="crud-display form-group">
+            <input type="text" name="tipoMedidaIngredienteLiquido" class="menu-left form-control" value="Litros" disabled>
+            <input type="text" name="valorTipoMedidaIngredienteLiquido" class="form-control" placeholder="valor medida(Lt):" autofocus value="{{ingrediente.valorTipoIngredienteLiquido}}">
+          </div>
+          <div class="form-group">
+            <input type="text" name="cantidadUnitariaIngrediente" class="form-control" placeholder="cantidad unitaria:" autofocus value="{{ingrediente.cantidadUnitariaIngrediente}}">
+          </div>
+          <div class="form-group">
+            <input type="text" name="fechaIngresoIngrediente" class="form-control" placeholder="fecha ingreso:" autofocus value="{{fechaIngresoIngrediente}}">
+          </div>
+          <input class="btn btn-primary btn-block" type="submit" value="Actualizar">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

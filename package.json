@@ -1,0 +1,29 @@
+{
+    "name": "proyectoinventariopanaderia",
+    "version": "1.0.0",
+    "description": "ProyectoDesde\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D \u001b[F\u001b[D\u001b[B\u001b[F\u001b[B\u001b[D\u001b[H\u001b[B\u001b[D\u001b[B",
+    "engines": {
+        "node": "v12.6.0"
+    },
+    "main": "\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001bDesde Cero",
+    "scripts": {
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Daniel Fernando Yepez Vélez",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "connect-flash": "^0.1.1",
+        "express": "^4.17.1",
+        "express-handlebars": "^3.1.0",
+        "express-session": "^1.16.2",
+        "hbs": "^4.0.4",
+        "method-override": "^3.0.0",
+        "mongoose": "^5.6.13",
+        "morgan": "^1.9.1",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0"
+    }
+}
