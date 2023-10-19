@@ -22,6 +22,6 @@ if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/panPanVinoVino';
 } else {
     //urlDB = 'mongodb+srv://DanielFernandoYepezVelez:SsFjmPowOMhf4tJ1@cluster0-iw8eb.mongodb.net/panPanVinoVino';
-       urlDB = 'mongodb+srv://DanielFernandoYepezVelez:SsFjmPowOMhf4tJ1@cluster0.iw8eb.mongodb.net/panPanVinoVino'
+       urlDB = 'mongodb+srv://DanielFernandoYepezVelez:PgAZZbRp4BOrlQNK@cluster0.iw8eb.mongodb.net/panPanVinoVino'
 }
 process.env.urlDB = urlDB;
